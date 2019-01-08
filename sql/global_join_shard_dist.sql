@@ -1,0 +1,2 @@
+/* recupera companies_dist de todos los nodos y hace un join con la tabla local en local */
+/* global shard dist */ SELECT * FROM test_db.events_shard GLOBAL ALL INNER JOIN test_db.companies_dist USING (company_id);

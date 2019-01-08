@@ -1,0 +1,2 @@
+/* hace el join en cada uno de los nodos de events_shard con companies_shard y hace el merge en local */
+/* global dist shard */ SELECT * FROM test_db.events_dist GLOBAL ALL INNER JOIN test_db.companies_shard USING (company_id);

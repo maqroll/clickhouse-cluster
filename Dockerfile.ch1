@@ -1,0 +1,10 @@
+FROM yandex/clickhouse-server:18.12.17
+
+COPY ["./ch1_config.xml", "/etc/clickhouse-server/config.xml"]
+COPY ["./dictionaries.xml", "/etc/clickhouse-server/dictionaries.xml"]
+COPY ["./dictionaries", "/etc/clickhouse-server/dictionaries"]
+COPY ["./include_from.xml", "/etc/clickhouse-server/include_from.xml"]
+COPY ["./users.xml","/etc/clickhouse-server/users.xml"]
+VOLUME /var/lib/clickhouse
+
+CMD ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml"]

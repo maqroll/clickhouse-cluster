@@ -1,0 +1,40 @@
+<yandex>
+    <comment>An optional element with any content. Ignored by the ClickHouse server.</comment>
+
+    <dictionary>
+        <name>dict_name</name>
+
+        <!-- local, executable, http, mysql, ch, mongodb, odbc -->
+        <source>
+          <file>
+            <path>/etc/clickhouse-server/dictionaries/dict.tsv</path>
+            <format>TabSeparated</format>
+          </file>
+        </source>
+
+        <!-- flat, hashed, complex_key_hashed, range_hashed, cache, complex_key_cache, ip_trie -->
+        <layout>
+          <flat/>
+        </layout>
+
+        <structure>
+          <id>
+            <name>Key</name>
+          </id>
+          <attribute>
+            <name>Value</name>
+            <type>UInt64</type>
+            <null_value>0</null_value>
+            <!--expression>rand64()</expression-->
+            <hierarchical>true</hierarchical>
+            <injective>true</injective>
+            <is_object_id>false</is_object_id>
+          </attribute>
+        </structure>
+
+        <lifetime>
+          <min>300</min>
+          <max>360</max>
+        </lifetime>
+    </dictionary>
+</yandex>
