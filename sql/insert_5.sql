@@ -1,0 +1,1 @@
+insert into default.file_engine_table(name,value) values ('three',3);

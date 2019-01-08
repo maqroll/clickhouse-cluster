@@ -1,7 +1,7 @@
 q = docker run -it --rm yandex/clickhouse-client --host `ipconfig getifaddr en0` --port $1 --multiline --multiquery --query "`cat $2`"
 
 create: sql/create.sql
-	$(call q, 9012, sql/create.sql)
+	$(call q, 9011, sql/create.sql)
 	$(call q, 9015, sql/create_5.sql)
 
 drop: sql/drop.sql
@@ -62,6 +62,7 @@ optimize:
 
 insert:
 	$(call q, 9011, sql/insert.sql)
+	$(call q, 9015, sql/insert_5.sql)
 
 # ReplacingMergeTree doesn't return last inserted row (for the same version)
 # Optimize change the result
@@ -72,6 +73,10 @@ impacts:
 	$(call q, 9015, sql/impacts.sql)
 
 # mutations
-https://www.altinity.com/blog/2018/10/16/updates-in-clickhouse
+# https://www.altinity.com/blog/2018/10/16/updates-in-clickhouse
+update:
+	$(call q, 9011, sql/update.sql)
+
 
 # AggregateFunctions
+# Not that interesting!!

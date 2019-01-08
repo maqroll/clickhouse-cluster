@@ -53,6 +53,50 @@
                 </replica>
             </shard>
         </all_cluster>
+        <one_two_cluster>
+            <shard>
+                <replica>
+                    <host>ch1</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>ch2</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </one_two_cluster>
+        <three_four_cluster>
+            <shard>
+                <replica>
+                    <host>ch3</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>ch4</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </three_four_cluster>
+        <three_cluster>
+            <shard>
+                <replica>
+                    <host>ch3</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </three_cluster>
+        <four_cluster>
+            <shard>
+                <replica>
+                    <host>ch4</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </four_cluster>
         <all_with_query_cluster>
             <shard>
                 <replica>

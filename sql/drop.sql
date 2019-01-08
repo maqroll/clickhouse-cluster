@@ -25,5 +25,20 @@ on CLUSTER all_cluster;
 DROP TABLE IF EXISTS test_db.impacts_shard
 on CLUSTER all_cluster;
 
+DROP TABLE IF EXISTS test_db.user_activity_shard
+ON CLUSTER all_cluster;
+
+DROP TABLE IF EXISTS test_db.economics
+ON CLUSTER all_cluster;
+
+DROP TABLE IF EXISTS test_db.level_zero_shard
+ON CLUSTER one_two_cluster;
+
+DROP TABLE IF EXISTS test_db.level_one_shard
+ON CLUSTER one_two_cluster;
+
+DROP TABLE IF EXISTS test_db.level_zero
+ON CLUSTER three_four_cluster;
+
 drop database if exists view_db;
 drop database if exists test_db;

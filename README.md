@@ -13,9 +13,12 @@
         query,
         is_initial_query,
         thread_numbers,
+        result_rows,
         profile
     from system.query_log_all 
     where 
-        initial_query_id in (select query_id from system.query_log where query like '% shard dist %' and is_initial_query=1 and type in (2) order by query_start_time desc limit 1)
+        initial_query_id in (
+            select query_id from system.query_log where is_initial_query=1 and type in (2) order by query_start_time desc limit 1
+        )
         and type in (2,3,4)
     order by query_start_time asc;
