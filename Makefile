@@ -1,5 +1,15 @@
 q = docker run -it --rm yandex/clickhouse-client --host `ipconfig getifaddr en0` --port $1 --multiline --multiquery --query "`cat $2`"
 
+clean:
+	rm -rf ./ch*_volume/data/*
+	rm -rf ./ch*_volume/flags/*
+	rm -rf ./ch*_volume/format_schemas/*
+	rm -rf ./ch*_volume/metadata/*
+	rm -rf ./ch*_volume/status/*
+	rm -rf ./ch*_volume/tmp/*
+	rm -rf ./data/*
+	rm -rf ./datalog/*
+
 create: sql/create.sql
 	$(call q, 9011, sql/create.sql)
 	$(call q, 9015, sql/create_5.sql)
