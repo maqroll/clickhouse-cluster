@@ -36,3 +36,27 @@ CREATE TABLE IF NOT EXISTS test_db.level_zero (
   product_id          UInt32,
   sold               UInt32
 ) ENGINE = Distributed(three_four_cluster, test_db, level_zero);
+
+CREATE TABLE IF NOT EXISTS cascade_db.last (
+  event_date          Date DEFAULT toDate(now()),
+  company_id          UInt32,
+  product_id          UInt32,
+  sold               UInt32
+) ENGINE = MergeTree()
+PARTITION BY toYYYYMM(event_date)
+ORDER BY (company_id,product_id)
+SETTINGS index_granularity=8192;
+
+CREATE TABLE IF NOT EXISTS cascade_db.first (
+  event_date          Date DEFAULT toDate(now()),
+  company_id          Int32,
+  product_id          Int32,
+  sold               Int32
+) ENGINE = MergeTree()
+PARTITION BY toYYYYMM(event_date)
+ORDER BY (company_id,product_id)
+SETTINGS index_granularity=8192;
+
+// Negative values get inserted ok in first but not in last
+// last is not aligned with first
+CREATE MATERIALIZED VIEW IF NOT EXISTS cascade_db.first_to_last TO cascade_db.last AS select * from cascade_db.first;

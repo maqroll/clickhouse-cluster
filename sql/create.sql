@@ -1,5 +1,6 @@
 create database if not exists test_db on cluster all_with_query_cluster;
 create database if not exists view_db on cluster test_cluster;
+create database if not exists cascade_db on cluster all_with_query_cluster;
 
 CREATE TABLE IF NOT EXISTS test_db.events_shard ON CLUSTER test_cluster(
   event_date           Date DEFAULT toDate(now()),
