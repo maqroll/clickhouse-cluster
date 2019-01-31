@@ -47,16 +47,13 @@ PARTITION BY toYYYYMM(event_date)
 ORDER BY (company_id,product_id)
 SETTINGS index_granularity=8192;
 
-CREATE TABLE IF NOT EXISTS cascade_db.first (
-  event_date          Date DEFAULT toDate(now()),
-  company_id          Int32,
-  product_id          Int32,
-  sold               Int32
-) ENGINE = MergeTree()
+CREATE TABLE IF NOT EXISTS cascade_db.first AS cascade_db.last ENGINE = MergeTree()
 PARTITION BY toYYYYMM(event_date)
 ORDER BY (company_id,product_id)
 SETTINGS index_granularity=8192;
 
 // Negative values get inserted ok in first but not in last
 // last is not aligned with first
+// UPDATE: Type mismatch for column company_id....
+// Nor updates nor deletes get propagated through views.
 CREATE MATERIALIZED VIEW IF NOT EXISTS cascade_db.first_to_last TO cascade_db.last AS select * from cascade_db.first;
