@@ -1,0 +1,42 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>100</x><y>149</y><w>280</w><h>160</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+--
+bg=#f6eff7</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>179</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+--
+bg=#67a9cf</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>329</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+--
+bg=#bdc9e1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>329</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+--
+bg=#1c9099</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>60</x><y>89</y><w>90</w><h>430</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=partition_id</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>119</y><w>790</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=block</panel_attributes><additional_attributes>770;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>179</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>179</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>359</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>359</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>209</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>209</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>359</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>359</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>419</y><w>150</w><h>70</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;130;50</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>299</y><w>110</w><h>190</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;90;170</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>269</y><w>70</w><h>220</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>50;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>419</y><w>110</w><h>70</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>90;10;10;50</additional_attributes></element><element><id>Text</id><coordinates><x>180</x><y>469</y><w>630</w><h>220</h></coordinates><panel_attributes>*Each one of these is a folder inside data.*
+blockNumber() function reports the logical blocks (limited by size) in which the total number of rows is processed.
+
+Inside every part the data is sorted according to sorting key.
+
+primary.idx keeps sorting key values for ¿sorting key or primary key? for samples of data. The number of samples is related to the number of rows and the parameter index_granularity. 
+
+Settings force_index_by_date=1 and force_primary_key=1 lets you make sure that partition index and primary index are used in the query.
+
+PREWHERE works just as a hint for running the query.
+ 
+Compression (LZ4) is active for default. You can switch to a better (more compression) alternative like ZSTD by configuration. You can use custom codecs per column basis.
+
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>249</y><w>110</w><h>50</h></coordinates><panel_attributes>primary.idx
+--
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

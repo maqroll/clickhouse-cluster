@@ -1,4 +1,4 @@
-FROM yandex/clickhouse-server:19.1.6
+FROM yandex/clickhouse-server:19.3.4
 
 COPY ["./ch2_config.xml", "/etc/clickhouse-server/config.xml"]
 COPY ["./dictionaries.xml", "/etc/clickhouse-server/dictionaries.xml"]
