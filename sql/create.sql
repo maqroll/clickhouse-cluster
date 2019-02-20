@@ -57,6 +57,10 @@ create table if not exists system.query_log_all
 on cluster all_with_query_cluster as system.query_log 
 ENGINE = Distributed(all_cluster,system,query_log);
 
+create table if not exists system.query_thread_log_all
+on cluster all_with_query_cluster as system.query_thread_log
+ENGINE = Distributed(all_cluster,system,query_thread_log);
+
 /* Can't use AS because we are creating  this table in query nodes */
 CREATE TABLE IF NOT EXISTS test_db.companies_shard 
 ON CLUSTER test_cluster(

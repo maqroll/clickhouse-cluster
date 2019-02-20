@@ -7,6 +7,9 @@ ON CLUSTER test_cluster;
 drop table if exists system.query_log_all 
 on cluster all_cluster;
 
+drop table if exists system.query_thread_log_all
+on cluster all_cluster;
+
 DROP TABLE IF EXISTS test_db.events_dist
 ON CLUSTER test_cluster;
 

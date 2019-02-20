@@ -1,0 +1,4 @@
+-- load v (format TSV) in temporary table v
+-- load art.csv (format CSVWithNames) in temporary table a
+-- join them and dump result in format TSVWithNames
+clickhouse-client --external --file=v --name=v --format=TSV --structure="ID_C UInt8, ID_T UInt8,C FixedString(5),COD_P UInt8, M UInt16, CAL UInt16, V UInt64" --external --file=art.csv --name=a --format=CSVWithNames --structure="ID_C UInt8, ID_T UInt8, C FixedString(5), COD_P UInt8, M UInt16, C UInt16, DESC String,ID_F UInt64, ID_SUBF UInt64, ID_F UInt64, ID_SUBF UInt64, PREC Float64" -q "select * from v inner join a using ID_C,ID_T,C,COD_P,M,CAL order by V desc FORMAT TSVWithNames" > l
