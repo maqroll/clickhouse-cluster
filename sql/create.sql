@@ -132,3 +132,49 @@ ON CLUSTER four_cluster (
   product_id          UInt32,
   sold               UInt32
 ) ENGINE = Distributed(one_two_cluster, test_db, level_one_shard);
+
+
+
+CREATE TABLE IF NOT EXISTS test_db.main_shard ON CLUSTER test_cluster(
+  event_date           Date DEFAULT toDate(now()),
+  company_id           UInt32,
+  product_id           UInt32
+) ENGINE=MergeTree()
+PARTITION BY toYYYYMM(event_date)
+ORDER BY (company_id,product_id);
+create table if not exists test_db.main on cluster test_cluster as test_db.main_shard ENGINE=Distributed(test_cluster,test_db,main_shard);
+
+CREATE TABLE IF NOT EXISTS test_db.second_shard ON CLUSTER test_cluster(
+  event_date           Date DEFAULT toDate(now()),
+  company_id           UInt32,
+  product_id           UInt32,
+  second_description   String
+) ENGINE=MergeTree()
+PARTITION BY toYYYYMM(event_date)
+ORDER BY (company_id,product_id);
+create table if not exists test_db.second on cluster test_cluster as test_db.second_shard ENGINE=Distributed(test_cluster,test_db,second_shard);
+
+CREATE TABLE IF NOT EXISTS test_db.third_shard ON CLUSTER test_cluster(
+  event_date           Date DEFAULT toDate(now()),
+  company_id           UInt32,
+  product_id           UInt32,
+  third_description    String
+) ENGINE=MergeTree()
+PARTITION BY toYYYYMM(event_date)
+ORDER BY (company_id,product_id);
+create table if not exists test_db.third on cluster test_cluster as test_db.third_shard ENGINE=Distributed(test_cluster,test_db,third_shard);
+
+
+/* distributed views */
+set allow_experimental_multiple_joins_emulation=1;
+
+create view test_db.v on cluster test_cluster as 
+select event_date,company_id,product_id,second_description,third_description
+from test_db.main_shard m
+any inner join test_db.second_shard s using (event_date,company_id)
+any inner join test_db.third_shard t  using (event_date,company_id);
+
+create table if not exists test_db.vd 
+on cluster test_cluster 
+as test_db.v 
+ENGINE=Distributed(test_cluster,test_db,v);

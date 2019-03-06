@@ -43,5 +43,30 @@ ON CLUSTER one_two_cluster;
 DROP TABLE IF EXISTS test_db.level_zero
 ON CLUSTER three_four_cluster;
 
+
+DROP TABLE IF EXISTS test_db.main_shard 
+ON CLUSTER test_cluster;
+
+DROP table if exists test_db.main 
+on cluster test_cluster;
+
+DROP TABLE IF EXISTS test_db.second_shard 
+ON CLUSTER test_cluster;
+
+drop table if exists test_db.second 
+on cluster test_cluster;
+
+DROP TABLE IF EXISTS test_db.third_shard 
+ON CLUSTER test_cluster;
+
+drop table if exists test_db.third 
+on cluster test_cluster;
+
+drop table if exists test_db.v 
+on cluster test_cluster;
+
+drop table if exists test_db.vd 
+on cluster test_cluster;
+
 drop database if exists view_db;
 drop database if exists test_db;
