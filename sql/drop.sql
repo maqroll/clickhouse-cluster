@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS test_db.dim_company_id 
+ON CLUSTER all_with_query_cluster;
+
 DROP TABLE IF EXISTS test_db.companies_dist
 ON CLUSTER test_cluster;
 

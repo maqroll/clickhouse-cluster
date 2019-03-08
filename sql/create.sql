@@ -77,6 +77,9 @@ ON CLUSTER all_with_query_cluster (
   description          String
 ) ENGINE = Distributed(test_cluster, test_db, companies_shard, rand());
 
+// dimensions (on the fly)
+CREATE VIEW IF NOT EXISTS test_db.dim_company_id ON CLUSTER all_with_query_cluster AS SELECT DISTINCT company_id as company_id FROM test_db.companies_dist;
+
 CREATE VIEW IF NOT EXISTS view_db.events_one_shard on cluster test_cluster as select * from test_db.events_shard where company_id=1;
 
 CREATE TABLE IF NOT EXISTS test_db.dict
