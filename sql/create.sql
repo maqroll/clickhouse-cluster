@@ -73,7 +73,7 @@ ORDER BY (company_id);
 
 CREATE TABLE IF NOT EXISTS test_db.companies_dist
 ON CLUSTER all_with_query_cluster (
-  company_id           UInt32,
+  company_id           LowCardinality(UInt32),
   description          String
 ) ENGINE = Distributed(test_cluster, test_db, companies_shard, rand());
 
@@ -181,3 +181,13 @@ create table if not exists test_db.vd
 on cluster test_cluster 
 as test_db.v 
 ENGINE=Distributed(test_cluster,test_db,v);
+
+SET allow_experimental_multiple_joins_emulation=1;
+
+ALTER TABLE test_db.third_shard ADD INDEX i (third_description) TYPE minmax GRANULARITY 3;
+
+// index creation get replicated to replica sibling
+// it is necessary to declare the index in every replica because
+// on cluster definition fails!!!
+ALTER TABLE test_db.companies_shard ADD INDEX d (description) TYPE minmax GRANULARITY 3;
+

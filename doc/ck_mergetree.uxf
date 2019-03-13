@@ -1,35 +1,38 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>78</y><w>280</w><h>160</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>60</x><y>60</y><w>280</w><h>160</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
 --
-bg=#f6eff7</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>108</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+bg=#f6eff7</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>90</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
 --
-bg=#67a9cf</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>258</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+bg=#67a9cf</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>240</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
 --
-bg=#bdc9e1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>258</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
+bg=#bdc9e1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>240</y><w>280</w><h>100</h></coordinates><panel_attributes>*partition_id,block_min,block_max,level*
 --
-bg=#1c9099</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>30</x><y>18</y><w>90</w><h>430</h></coordinates><panel_attributes>lt=&lt;&lt;-
-m1=partition_id</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>48</y><w>790</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
-m1=block</panel_attributes><additional_attributes>770;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>108</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+bg=#1c9099</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>0</y><w>90</w><h>430</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=partition_id</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>30</y><w>790</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+m1=block</panel_attributes><additional_attributes>770;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>90</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>108</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>90</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>288</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>270</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>288</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>270</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>138</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>120</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>138</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>120</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>288</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>270</y><w>110</w><h>60</h></coordinates><panel_attributes>column 1
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>288</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>270</y><w>110</w><h>60</h></coordinates><panel_attributes>column N
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>348</y><w>150</w><h>70</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;130;50</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>228</y><w>110</w><h>190</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;90;170</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>198</y><w>70</w><h>220</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>50;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>348</y><w>110</w><h>70</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>90;10;10;50</additional_attributes></element><element><id>Text</id><coordinates><x>150</x><y>398</y><w>630</w><h>270</h></coordinates><panel_attributes>*Each one of these is a folder inside data.*
-blockNumber() function reports the logical blocks (limited by size) in which the total number of rows is processed.
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>330</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;110;30</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>210</y><w>90</w><h>170</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;70;150</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>180</y><w>90</w><h>200</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>70;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>330</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>110;10;10;30</additional_attributes></element><element><id>Text</id><coordinates><x>120</x><y>360</y><w>630</w><h>380</h></coordinates><panel_attributes>*Each one of these is a folder inside data.*
 
-Inside every part the data is sorted according to sorting key.
+partitioning key -&gt; partition
+primary key -&gt; sparse index (not unique)
+sorting key -&gt; row sorting
 
-primary.idx keeps sorting key values for ¿sorting key or primary key? for samples of data. The number of samples is related to the number of rows and the parameter index_granularity. 
+Primary &amp; sorting keys are usually equal. If different, primary key should be a prefix of the sorting key.
+
+primary.idx store primary key values for samples of data. One sample for every index_granularity (parameter) number of rows. 
 
 Settings force_index_by_date=1 and force_primary_key=1 lets you make sure that partition index and primary index are used in the query.
 
@@ -37,6 +40,43 @@ PREWHERE works just as a hint for running the query.
  
 Compression (LZ4) is active for default. You can switch to a better (more compression) alternative like ZSTD by configuration. You can use custom codecs per column basis.
 
-style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>178</y><w>110</w><h>50</h></coordinates><panel_attributes>primary.idx
+blockNumber() function reports the logical blocks (limited by size) in which the total number of rows is processed.
+
+mrk files store offsets for rows making possible to fetch just the necessary rows (limited by the sparseness of the index).
+
+Skipped indexes include both mrk and idx files.
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>150</x><y>160</y><w>110</w><h>50</h></coordinates><panel_attributes>primary.idx
 --
-</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>295</y><w>130</w><h>180</h></coordinates><panel_attributes>*.mrk
+--
+offset row N in block
+--
+offset row N*2 in block
+--
+offset row N*3 in block
+--
+offset row N*4 in block
+--
+offset row N*5 in block
+--
+offset row N*6 in block
+--
+offset row N*7 in block
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>790</x><y>95</y><w>90</w><h>180</h></coordinates><panel_attributes>primary.idx
+--
+pk row N
+--
+pk row N*2
+--
+pk row N*3
+--
+pk row N*4
+--
+pk row N*5 
+--
+pk row N*6
+--
+pk row N*7
+--
+...</panel_attributes><additional_attributes></additional_attributes></element></diagram>
