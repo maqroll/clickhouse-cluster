@@ -167,6 +167,7 @@ PARTITION BY toYYYYMM(event_date)
 ORDER BY (company_id,product_id);
 create table if not exists test_db.third on cluster test_cluster as test_db.third_shard ENGINE=Distributed(test_cluster,test_db,third_shard);
 
+SET allow_experimental_data_skipping_indices = 1;
 
 /* distributed views */
 set allow_experimental_multiple_joins_emulation=1;

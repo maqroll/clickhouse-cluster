@@ -1,0 +1,228 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: zookeeper 
+  labels: 
+    app: zookeeper 
+spec: 
+  containers: 
+  - name: zookeeper 
+    image: zookeeper 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper
+  labels:
+    app: zookeeper
+spec:
+  ports:
+  - port: 2181
+    protocol: TCP
+  selector:
+    app: zookeeper
+---
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: clickhouse-ch1 
+  labels: 
+    app: clickhouse-ch1 
+spec: 
+  containers: 
+  - name: clickhouse-ch1 
+    image: clickhouse-ch1:v1
+---
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: clickhouse-ch2 
+  labels: 
+    app: clickhouse-ch2 
+spec: 
+  containers: 
+  - name: clickhouse-ch2 
+    image: clickhouse-ch2:v1
+---
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: clickhouse-ch3 
+  labels: 
+    app: clickhouse-ch3 
+spec: 
+  containers: 
+  - name: clickhouse-ch3 
+    image: clickhouse-ch3:v1
+---
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: clickhouse-ch4 
+  labels: 
+    app: clickhouse-ch4 
+spec: 
+  containers: 
+  - name: clickhouse-ch4 
+    image: clickhouse-ch4:v1
+---
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: clickhouse-ch5 
+  labels: 
+    app: clickhouse-ch5 
+spec: 
+  containers: 
+  - name: clickhouse-ch5
+    image: clickhouse-ch5:v1              
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch1-external
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+    nodePort: 30011
+  selector:
+    app: clickhouse-ch1
+  type: NodePort  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch2-external
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+    nodePort: 30012
+  selector:
+    app: clickhouse-ch2
+  type: NodePort  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch3-external
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+    nodePort: 30013
+  selector:
+    app: clickhouse-ch3
+  type: NodePort  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch4-external
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+    nodePort: 30014
+  selector:
+    app: clickhouse-ch4
+  type: NodePort  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch5-external
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+    nodePort: 30015
+  selector:
+    app: clickhouse-ch5         
+  type: NodePort      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch1
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+  selector:
+    app: clickhouse-ch1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch2
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+  selector:
+    app: clickhouse-ch2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch3
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+  selector:
+    app: clickhouse-ch3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch4
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+  selector:
+    app: clickhouse-ch4
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse-ch5
+  labels:
+    app: clickhouse
+spec:
+  ports:
+  - port: 9000
+    name: "ch-protocol"
+    protocol: TCP
+  selector:
+    app: clickhouse-ch5         

@@ -146,7 +146,7 @@
     <!-- <macros incl="macros" optional="true" /> -->
     <macros>
         <shard>01</shard>
-        <replica>ch2</replica>
+        <replica>clickhouse-ch2.ch.svc.cluster.local</replica>
     </macros>
 
 

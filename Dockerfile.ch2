@@ -1,12 +1,12 @@
 FROM yandex/clickhouse-server:19.3.4
 
-COPY ["./ch2_config.xml", "/etc/clickhouse-server/config.xml"]
 COPY ["./dictionaries.xml", "/etc/clickhouse-server/dictionaries.xml"]
 COPY ["./dictionaries", "/etc/clickhouse-server/dictionaries"]
 COPY ["./include_from.xml", "/etc/clickhouse-server/include_from.xml"]
 COPY ["./users.xml","/etc/clickhouse-server/users.xml"]
 COPY ["./init.sh","/init.sh"]
-VOLUME /var/lib/clickhouse
+COPY ["./ch2_config.xml", "/etc/clickhouse-server/config.xml"]
+#VOLUME /var/lib/clickhouse
 
 #CMD ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml"]
 

@@ -4,11 +4,11 @@
             <!-- shard 01 -->
             <shard>
                 <replica>
-                    <host>ch1</host>
+                    <host>clickhouse-ch1</host>
                     <port>9000</port>
                 </replica>
                 <replica>
-                    <host>ch2</host>
+                    <host>clickhouse-ch2</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -16,11 +16,11 @@
             <!-- shard 02 -->
             <shard>
                 <replica>
-                    <host>ch3</host>
+                    <host>clickhouse-ch3</host>
                     <port>9000</port>
                 </replica>
                 <replica>
-                    <host>ch4</host>
+                    <host>clickhouse-ch4</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -28,27 +28,27 @@
         <all_cluster>
             <shard>
                 <replica>
-                    <host>ch1</host>
+                    <host>clickhouse-ch1</host>
                     <port>9000</port>
                 </replica>
             </shard>
 
             <shard>
                 <replica>
-                    <host>ch2</host>
+                    <host>clickhouse-ch2</host>
                     <port>9000</port>
                 </replica>
             </shard>
 
             <shard>
                 <replica>
-                    <host>ch3</host>
+                    <host>clickhouse-ch3</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>    
                 <replica>
-                    <host>ch4</host>
+                    <host>clickhouse-ch4</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -56,13 +56,13 @@
         <one_two_cluster>
             <shard>
                 <replica>
-                    <host>ch1</host>
+                    <host>clickhouse-ch1</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>
                 <replica>
-                    <host>ch2</host>
+                    <host>clickhouse-ch2</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -70,13 +70,13 @@
         <three_four_cluster>
             <shard>
                 <replica>
-                    <host>ch3</host>
+                    <host>clickhouse-ch3</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>
                 <replica>
-                    <host>ch4</host>
+                    <host>clickhouse-ch4</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -84,7 +84,7 @@
         <three_cluster>
             <shard>
                 <replica>
-                    <host>ch3</host>
+                    <host>clickhouse-ch3</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -92,7 +92,7 @@
         <four_cluster>
             <shard>
                 <replica>
-                    <host>ch4</host>
+                    <host>clickhouse-ch4</host>
                     <port>9000</port>
                 </replica>
             </shard>
@@ -100,33 +100,33 @@
         <all_with_query_cluster>
             <shard>
                 <replica>
-                    <host>ch1</host>
+                    <host>clickhouse-ch1</host>
                     <port>9000</port>
                 </replica>
             </shard>
 
             <shard>
                 <replica>
-                    <host>ch2</host>
+                    <host>clickhouse-ch2</host>
                     <port>9000</port>
                 </replica>
             </shard>
 
             <shard>
                 <replica>
-                    <host>ch3</host>
+                    <host>clickhouse-ch3</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>    
                 <replica>
-                    <host>ch4</host>
+                    <host>clickhouse-ch4</host>
                     <port>9000</port>
                 </replica>
             </shard>
             <shard>    
                 <replica>
-                    <host>ch5</host>
+                    <host>clickhouse-ch5</host>
                     <port>9000</port>
                 </replica>
             </shard>        
@@ -135,7 +135,7 @@
 
     <zookeeper-servers>
         <node index="1">
-            <host>zookeeper</host>
+            <host>zookeeper.ch.svc.cluster.local</host>
             <port>2181</port>
         </node>
     </zookeeper-servers>

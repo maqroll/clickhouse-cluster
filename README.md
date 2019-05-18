@@ -1,24 +1,9 @@
-# Clickhouse cluster on Docker
+# Clickhouse cluster on k8s
+	
+    kubectl create namespace ch
+    make k8s
+    docker run -it --rm yandex/clickhouse-client --host `ipconfig getifaddr en0` --port 30012 --multiline
+    make stop
 
-    docker-compose up
-    
-    docker run -it --rm yandex/clickhouse-client --host $ip --port 9012 --multiline
-
-    with
-        arrayMap(i -> concat(ProfileEvents.Names[i],'='),arrayEnumerate(ProfileEvents.Names)) as p,
-        arrayMap(i -> concat(p[i],toString(ProfileEvents.Values[i])), arrayEnumerate(ProfileEvents.Values)) as profile
-    select 
-        hostName(),
-        type,
-        query,
-        is_initial_query,
-        thread_numbers,
-        result_rows,
-        profile
-    from system.query_log_all 
-    where 
-        initial_query_id in (
-            select query_id from system.query_log where is_initial_query=1 and type in (2) order by query_start_time desc limit 1
-        )
-        and type in (2,3,4)
-    order by query_start_time asc;
+# Clickhouse cluster on docker (before)
+    See docker tag.
