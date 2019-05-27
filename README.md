@@ -7,3 +7,5 @@
 
 # Clickhouse cluster on docker (before)
     See docker tag.
+    
+Be aware of [ClickHouse operator for kubernetes](https://www.altinity.com/blog/2019/4/9/altinity-clickhouse-operator-for-kubernetes).
