@@ -1,0 +1,11 @@
+-- Convert csv file to parquet
+type c:\personal\graylog-search-result-relative-86400.csv | docker run -i --rm yandex/clickhouse-client:19.8.3.8 local --date_time_input_format best_effort --input-f CSVWithNames -S "timestamp DateTime, source String, path String, execTime UInt64" -q "select * from table format Parquet" > result.pq
+
+-- Read parquet file
+type result.pq |docker run -i --rm yandex/clickhouse-client:19.8.3.8 local --date_time_input_format best_effort --input-f Parquet -S "timestamp DateTime, source String, path String, execTime UInt64" -q "select path,count(*) as c from table group by path limit 10"
+
+type result.pq |docker run -i --rm yandex/clickhouse-client:19.8.3.8 local --date_time_input_format best_effort --input-f Parquet -S "timestamp DateTime, source String, path String, execTime UInt64" -q "select path,count(*) as c,avg(execTime),min(execTime),max(execTime),stddevPop(execTime) from table group by path order by c desc limit 20"
+
+type result.pq |docker run -i --rm yandex/clickhouse-client:19.8.3.8 local --date_time_input_format best_effort --input-f Parquet -S "timestamp DateTime, source String, path String, execTime UInt64" -q "select count(*) from table"
+
+type result.pq |docker run -i --rm yandex/clickhouse-client:19.8.3.8 local --date_time_input_format best_effort --input-f Parquet -S "timestamp DateTime, source String, path String, execTime UInt64" -q "select splitByChar('/',path)[2] as p,quantileTDigest(.98)(execTime) as t,count(*) as c from table group by p order by t desc"
