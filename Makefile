@@ -1,4 +1,4 @@
-q = docker run -it --rm yandex/clickhouse-client:19.3.4 --host `ipconfig getifaddr en0` --port $1 --multiline --multiquery --query "`cat $2`"
+q = docker run -it --rm yandex/clickhouse-client:19.9.2.4 --host `ipconfig getifaddr en0` --port $1 --multiline --multiquery --query "`cat $2`"
 
 start: clean
 	docker-compose up

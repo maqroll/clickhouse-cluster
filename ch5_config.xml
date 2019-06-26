@@ -306,4 +306,8 @@
             </retention>
         </default>
     </graphite_rollup_example>
+    <kafka>
+        <debug>all</debug>
+        <auto_offset_reset>smallest</auto_offset_reset>
+    </kafka>    
 </yandex>
