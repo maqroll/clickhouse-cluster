@@ -13,6 +13,9 @@ build:
 k8s: build
 	kubectl apply -n ch -f k8s.yaml
 
+status:
+	kubectl get all -n ch
+
 stop:
 	kubectl delete -n ch -f k8s.yaml
 
