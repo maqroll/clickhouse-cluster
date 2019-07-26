@@ -6,6 +6,14 @@
         <default>
             <!-- Maximum memory usage for processing single query, in bytes. -->
             <max_memory_usage>10000000000</max_memory_usage>
+	       <max_insert_block_size>100000000</max_insert_block_size>
+           <!-- small kafka blocks get grouped to this size -->
+           <!-- or less at the boundary -->
+	       <min_insert_block_size_rows>100000000</min_insert_block_size_rows>
+	       <distributed_directory_monitor_batch_inserts>1</distributed_directory_monitor_batch_inserts>
+           <!-- default 500 -->
+           <!-- high values of stream_poll_timeout_ms lead to hanging 1 row blocks -->
+           <stream_poll_timeout_ms>1000</stream_poll_timeout_ms>
 
             <!-- Use cache of uncompressed blocks of data. Meaningful only for processing many of very short queries. -->
             <use_uncompressed_cache>0</use_uncompressed_cache>
@@ -18,7 +26,7 @@
                  in_order - first live replica is choosen in specified order.
             -->
             <load_balancing>random</load_balancing>
-            <log_queries>1</log_queries>
+            <log_queries>0</log_queries>
         </default>
 
         <!-- Profile that allows only read queries. -->
