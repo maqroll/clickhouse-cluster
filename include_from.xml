@@ -135,7 +135,7 @@
 
     <zookeeper-servers>
         <node index="1">
-            <host>zookeeper.ch.svc.cluster.local</host>
+            <host>zookeeper</host>
             <port>2181</port>
         </node>
     </zookeeper-servers>

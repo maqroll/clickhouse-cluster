@@ -85,6 +85,7 @@ metadata:
   name: clickhouse-ch1 
   labels: 
     app: ch1 
+    srv: clickhouse
 spec: 
   containers: 
   - name: clickhouse-ch1 
@@ -101,6 +102,7 @@ metadata:
   name: clickhouse-ch2 
   labels: 
     app: ch2 
+    srv: clickhouse
 spec: 
   containers: 
   - name: clickhouse-ch2 
@@ -116,6 +118,7 @@ metadata:
   name: clickhouse-ch3 
   labels: 
     app: ch3 
+    srv: clickhouse
 spec: 
   containers: 
   - name: clickhouse-ch3 
@@ -131,6 +134,7 @@ metadata:
   name: clickhouse-ch4 
   labels: 
     app: ch4 
+    srv: clickhouse
 spec: 
   containers: 
   - name: clickhouse-ch4 
@@ -146,6 +150,7 @@ metadata:
   name: clickhouse-ch5 
   labels: 
     app: ch5 
+    srv: clickhouse
 spec: 
   containers: 
   - name: clickhouse-ch5
@@ -154,106 +159,6 @@ spec:
 #  - ip: "..."
 #    hostnames:
 #    - "kafka"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: clickhouse-ch1-external
-  labels:
-    app: ch1
-spec:
-  ports:
-  - port: 9000
-    name: "ch-protocol"
-    protocol: TCP
-    nodePort: 30011
-  - port: 8123
-    name: "http-protocol"
-    protocol: TCP
-    nodePort: 30021
-  selector:
-    app: ch1
-  type: NodePort  
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: clickhouse-ch2-external
-  labels:
-    app: ch2
-spec:
-  ports:
-  - port: 9000
-    name: "ch-protocol"
-    protocol: TCP
-    nodePort: 30012
-  - port: 8123
-    name: "http-protocol"
-    protocol: TCP
-    nodePort: 30022
-  selector:
-    app: ch2
-  type: NodePort  
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: clickhouse-ch3-external
-  labels:
-    app: ch3
-spec:
-  ports:
-  - port: 9000
-    name: "ch-protocol"
-    protocol: TCP
-    nodePort: 30013
-  - port: 8123
-    name: "http-protocol"
-    protocol: TCP
-    nodePort: 30023
-  selector:
-    app: ch3
-  type: NodePort  
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: clickhouse-ch4-external
-  labels:
-    app: ch4
-spec:
-  ports:
-  - port: 9000
-    name: "ch-protocol"
-    protocol: TCP
-    nodePort: 30014
-  - port: 8123
-    name: "http-protocol"
-    protocol: TCP
-    nodePort: 30024
-  selector:
-    app: ch4
-  type: NodePort  
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: clickhouse-ch5-external
-  labels:
-    app: ch5
-spec:
-  ports:
-  - port: 9000
-    name: "ch-protocol"
-    protocol: TCP
-    nodePort: 30015
-  - port: 8123
-    name: "http-protocol"
-    protocol: TCP
-    nodePort: 30025
-  selector:
-    app: ch5         
-  type: NodePort      
 ---
 apiVersion: v1
 kind: Service
@@ -354,3 +259,23 @@ spec:
     protocol: TCP
   selector:
     app: ch5         
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb
+  labels:
+    app: lb
+spec:
+  ports:
+  - port: 9000
+    targetPort: 9000
+    protocol: TCP
+    name: "ch-protocol"
+  - port: 8123
+    targetPort: 8123
+    protocol: TCP
+    name: "http-protocol"
+  selector:
+    srv: clickhouse
+  type: LoadBalancer
